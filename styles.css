@@ -4,7 +4,8 @@
     --pastel-celeste: #bfcbc6;
     --pastel-rosa: #f8d7da;
     --pastel-amarillo: #fff3cd;
-    --pastel-morado: #e2d9f3;
+    --pastel-morado: #d7c9f2;
+    --pastel-morado-claro: #e5d8f7;
     --pastel-verde: #d4edda;
     --pastel-gris: #c7cbcd;
     --texto-oscuro: #383d41;
@@ -15,6 +16,7 @@
 .bg-pastel-rosa { background-color: var(--pastel-rosa); color: var(--texto-oscuro); }
 .bg-pastel-amarillo { background-color: var(--pastel-amarillo); color: var(--texto-oscuro); }
 .bg-pastel-morado { background-color: var(--pastel-morado); color: var(--texto-oscuro); }
+.bg-pastel-morado-input { background-color: var(--pastel-morado-claro); color: var(--texto-oscuro); }
 .bg-pastel-verde { background-color: var(--pastel-verde); color: var(--texto-oscuro); }
 .bg-pastel-gris { background-color: var(--pastel-gris); color: var(--texto-oscuro); }
 
@@ -35,4 +37,14 @@ body { background-color: #f8f9fa; }
     display: block;
     margin-bottom: 10px;
     font-weight: 500;
+}
+
+.input-destacado-registro {
+    border: 2px solid #b799f5 !important; /* Cambia el color aquí */
+    box-shadow: 0 0 8px rgba(99, 91, 255, 0.5); /* Resplandor suave */
+}
+
+.input-destacado-notas {
+    border: 2px solid #a7c4b7 !important; /* Cambia el color aquí */
+    box-shadow: 0 0 8px rgba(81, 156, 106, 0.5); /* Resplandor suave */
 }

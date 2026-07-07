@@ -19,22 +19,22 @@
                 <br>
                 
                 <h6 class="text-center small">Nota 1</h3>
-                <input type="number" v-model="n1" class="form-control mb-1 bg-pastel-azul-input" placeholder="Nota 1 (10-70)">
+                <input type="number" v-model="n1" class="form-control input-destacado-notas mb-1 bg-pastel-azul-input" placeholder="Nota 1 (10-70)">
                 <span v-if="n1 !== '' && (n1 < 10 || n1 > 70)" class="text-danger small mb-2 d-block">Nota inválida (10-70)</span>
                 <br>
 
                 <h6 class="text-center small">Nota 2</h3>
-                <input type="number" v-model="n2" class="form-control mb-1 bg-pastel-azul-input" placeholder="Nota 2 (10-70)">
+                <input type="number" v-model="n2" class="form-control input-destacado-notas mb-1 bg-pastel-azul-input" placeholder="Nota 2 (10-70)">
                 <span v-if="n2 !== '' && (n2 < 10 || n2 > 70)" class="text-danger small mb-2 d-block">Nota inválida (10-70)</span>
                 <br>
 
                 <h6 class="text-center small">Nota 3</h3>
-                <input type="number" v-model="n3" class="form-control mb-1 bg-pastel-azul-input" placeholder="Nota 3 (10-70)">
+                <input type="number" v-model="n3" class="form-control input-destacado-notas mb-1 bg-pastel-azul-input" placeholder="Nota 3 (10-70)">
                 <span v-if="n3 !== '' && (n3 < 10 || n3 > 70)" class="text-danger small mb-2 d-block">Nota inválida (10-70)</span>
                 <br>
 
                 <h6 class="text-center small">Asitencia %</h3>
-                <input type="number" v-model="asistencia" class="form-control mb-1 bg-pastel-azul-input" placeholder="Asistencia (0-100)">
+                <input type="number" v-model="asistencia" class="form-control input-destacado-notas mb-1 bg-pastel-azul-input" placeholder="Asistencia (0-100)">
                 <span v-if="asistencia !== '' && (asistencia < 1 || asistencia > 100)" class="text-danger small mb-2 d-block">Asistencia inválida (1-100)</span>
                 <br>
 
@@ -46,17 +46,21 @@
             </div>
 
             <div v-if="tab==='registro'" class="p-3 bg-pastel-morado">
-                <input v-model="nombre" class="form-control mb-1" placeholder="Nombre">
-                <span v-if="errores.nombre" class="text-danger small">{{ errores.nombre }}</span>
+                 <h6 class="text-center small">Nombre</h3>
+                <input v-model="nombre" class="form-control input-destacado-registro border-2 mb-1 bg-pastel-morado-input " placeholder="Nombre border">
+                <span v-if="errores.nombre" class="text-danger small ">{{ errores.nombre }}</span>
 
-                <input v-model="correo" class="form-control mb-1 mt-2" placeholder="Correo">
+                 <h6 class="text-center small">Correo electronico</h3>
+                <input v-model="correo" class="form-control input-destacado-registro mb-1 mt-2 bg-pastel-morado-input" placeholder="Correo">
                 <span v-if="errores.correo" class="text-danger small">{{ errores.correo }}</span>
 
-                <input type="password" v-model="pass" class="form-control mb-1 mt-2" placeholder="Contraseña">
+                 <h6 class="text-center small">Password</h3>
+                <input type="password" v-model="pass" class="form-control input-destacado-registro mb-1 mt-2 bg-pastel-morado-input" placeholder="Contraseña">
                 <span v-if="errores.pass" class="text-danger small">{{ errores.pass }}</span>
 
-                <input type="password" v-model="pass2" class="form-control mb-2 mt-2" placeholder="Repetir Contraseña">
-                
+                <h6 class="text-center small">Repetir Password</h3>
+                <input type="password" v-model="pass2" class="form-control input-destacado-registro mb-2 mt-2 bg-pastel-morado-input" placeholder="Repetir Contraseña">
+                <br>
                 <button @click="registrar" class="btn btn-success w-100">Registrar</button>
             </div>
         </div>
