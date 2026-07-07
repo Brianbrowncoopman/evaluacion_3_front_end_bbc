@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Examen Programación Front End</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app" class="container mt-5">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link bg-pastel-azul" :class="{active: tab==='notas'} " @click="tab='notas'" href="#">Cálculo de Notas</a></li>
+            <li class="nav-item"><a class="nav-link bg-pastel-morado" :class="{active: tab==='registro'} " @click="tab='registro'" href="#">Registro</a></li>
+        </ul>
+
+        <div class="p-4 border border-top-0 bg-pastel-gris">
+            <div v-if="tab==='notas'" class="p-4 bg-pastel-azul">
+                <h4 class="mb-3 text-center">Ingreso de Calificaciones</h4>
+                <br>
+                
+                <h6 class="text-center small">Nota 1</h3>
+                <input type="number" v-model="n1" class="form-control mb-1 bg-pastel-azul-input" placeholder="Nota 1 (10-70)">
+                <span v-if="n1 !== '' && (n1 < 10 || n1 > 70)" class="text-danger small mb-2 d-block">Nota inválida (10-70)</span>
+                <br>
+
+                <h6 class="text-center small">Nota 2</h3>
+                <input type="number" v-model="n2" class="form-control mb-1 bg-pastel-azul-input" placeholder="Nota 2 (10-70)">
+                <span v-if="n2 !== '' && (n2 < 10 || n2 > 70)" class="text-danger small mb-2 d-block">Nota inválida (10-70)</span>
+                <br>
+
+                <h6 class="text-center small">Nota 3</h3>
+                <input type="number" v-model="n3" class="form-control mb-1 bg-pastel-azul-input" placeholder="Nota 3 (10-70)">
+                <span v-if="n3 !== '' && (n3 < 10 || n3 > 70)" class="text-danger small mb-2 d-block">Nota inválida (10-70)</span>
+                <br>
+
+                <h6 class="text-center small">Asitencia %</h3>
+                <input type="number" v-model="asistencia" class="form-control mb-1 bg-pastel-azul-input" placeholder="Asistencia (0-100)">
+                <span v-if="asistencia !== '' && (asistencia < 1 || asistencia > 100)" class="text-danger small mb-2 d-block">Asistencia inválida (1-100)</span>
+                <br>
+
+                <button @click="calcular" :disabled="!esValido" class="btn btn-primary w-100 mb-3 mt-2">Calcular Promedio</button>
+
+                <div v-if="resultado.mensaje" :class="resultado.clase" class="p-3 mt-2 rounded text-center fw-bold text-white shadow">
+                    {{ resultado.mensaje }}
+                </div>
+            </div>
+
+            <div v-if="tab==='registro'" class="p-3 bg-pastel-morado">
+                <input v-model="nombre" class="form-control mb-1" placeholder="Nombre">
+                <span v-if="errores.nombre" class="text-danger small">{{ errores.nombre }}</span>
+
+                <input v-model="correo" class="form-control mb-1 mt-2" placeholder="Correo">
+                <span v-if="errores.correo" class="text-danger small">{{ errores.correo }}</span>
+
+                <input type="password" v-model="pass" class="form-control mb-1 mt-2" placeholder="Contraseña">
+                <span v-if="errores.pass" class="text-danger small">{{ errores.pass }}</span>
+
+                <input type="password" v-model="pass2" class="form-control mb-2 mt-2" placeholder="Repetir Contraseña">
+                
+                <button @click="registrar" class="btn btn-success w-100">Registrar</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

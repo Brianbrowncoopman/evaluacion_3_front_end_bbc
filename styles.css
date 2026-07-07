@@ -1,0 +1,38 @@
+:root {
+    /* Paleta de Colores Pasteles */
+    --pastel-azul: #d1e7dd;
+    --pastel-celeste: #bfcbc6;
+    --pastel-rosa: #f8d7da;
+    --pastel-amarillo: #fff3cd;
+    --pastel-morado: #e2d9f3;
+    --pastel-verde: #d4edda;
+    --pastel-gris: #c7cbcd;
+    --texto-oscuro: #383d41;
+}
+
+.bg-pastel-azul { background-color: var(--pastel-azul); color: var(--texto-oscuro); }
+.bg-pastel-azul-input{ background-color: var(--pastel-celeste); color: var(--texto-oscuro);}
+.bg-pastel-rosa { background-color: var(--pastel-rosa); color: var(--texto-oscuro); }
+.bg-pastel-amarillo { background-color: var(--pastel-amarillo); color: var(--texto-oscuro); }
+.bg-pastel-morado { background-color: var(--pastel-morado); color: var(--texto-oscuro); }
+.bg-pastel-verde { background-color: var(--pastel-verde); color: var(--texto-oscuro); }
+.bg-pastel-gris { background-color: var(--pastel-gris); color: var(--texto-oscuro); }
+
+
+body { background-color: #f8f9fa; }
+.nav-link { cursor: pointer; color: #495057; }
+.nav-link.active { font-weight: bold; color: #0d6efd !important; }
+.container { max-width: 600px; }
+
+
+/* Asegura que el contenedor principal tenga un fondo blanco y sombra como en el mockup */
+.p-4.border.bg-white {
+    border-radius: 0 0 8px 8px; /* Redondeado solo abajo para unir con la pestaña */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.text-danger.small {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
