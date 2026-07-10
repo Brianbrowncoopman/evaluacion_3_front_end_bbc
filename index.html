@@ -8,66 +8,76 @@
 </head>
 <body>
     <div id="app" class="container mt-5">
+        <!-- Barra de búsqueda para navegar entre las pestañas -->
         <div class="d-flex justify-content-end mb-3 gap-2">
             <input type="text" v-model="busqueda" class="form-control w-25" placeholder="Buscar página...">
             <button @click="navegar" class="btn btn-primary">Ir</button>
         </div>
 
+        <!-- Pestañas de navegación -->
         <ul class="nav nav-tabs">
             <li class="nav-item"><a class="nav-link bg-pastel-azul" :class="{active: tab==='notas'}" @click="tab='notas'" href="#">Cálculo de Notas</a></li>
             <li class="nav-item"><a class="nav-link bg-pastel-morado" :class="{active: tab==='registro'}" @click="tab='registro'" href="#">Registro</a></li>
         </ul>
 
+        <!-- Contenido de las pestañas -->
         <div class="p-4 border border-top-0 bg-pastel-gris">
+            <!-- Pestaña de ingreso de calificaciones -->
             <div v-if="tab==='notas'" class="p-4 bg-pastel-azul">
                 <h4 class="mb-3 text-center">Ingreso de Calificaciones</h4>
+                <!-- Input para la 1-->
                 <h6 class="text-center small">Nota 1</h6>
                 <input type="number" v-model="n1" class="form-control mb-1 bg-pastel-azul-input" placeholder="Nota 1 (10-70)">
                 <span v-if="n1 !== '' && (n1 < 10 || n1 > 70)" class="text-danger small d-block">Nota mínima 10, Nota máxima 70</span>
-                
+                <!-- Input para la 2-->
                 <h6 class="text-center small mt-2">Nota 2</h6>
                 <input type="number" v-model="n2" class="form-control mb-1 bg-pastel-azul-input" placeholder="Nota 2 (10-70)">
                 <span v-if="n2 !== '' && (n2 < 10 || n2 > 70)" class="text-danger small d-block">Nota mínima 10, Nota máxima 70</span>
-                
+                <!-- Input para la 3-->
                 <h6 class="text-center small mt-2">Nota 3</h6>
                 <input type="number" v-model="n3" class="form-control mb-1 bg-pastel-azul-input" placeholder="Nota 3 (10-70)">
                 <span v-if="n3 !== '' && (n3 < 10 || n3 > 70)" class="text-danger small d-block">Nota mínima 10, Nota máxima 70</span>
-                
+                <!-- Input para la asistencia -->
                 <h6 class="text-center small mt-2">Asistencia</h6>
                 <input type="number" v-model="asistencia" class="form-control mb-1 bg-pastel-azul-input" placeholder="Asistencia (0-100)">
                 <span v-if="asistencia !== '' && (asistencia < 1 || asistencia > 100)" class="text-danger small mb-2 d-block">Asistencia inválida (1-100)</span>
-                
+                <!-- Botón para calcular el promedio -->
                 <button @click="calcular" :disabled="!esValido" class="btn btn-primary w-100 mt-3">Calcular Promedio</button>
-
+                <!-- Mensaje de error si los valores no son válidos -->
                 <span v-if="!esValido && (n1 !== '' || n2 !== '' || n3 !== '' || asistencia !== '')" 
                     class="text-danger fw-bold mt-2 d-block text-center">
                     Por favor ingrese valores válidos para las notas y las asistencias si no fueron cargados o correctamente cargados.
                 </span>
-
+                <!-- Mensaje de resultado del cálculo -->
                 <div v-if="resultado.mensaje" :class="resultado.clase" class="p-3 mt-3 rounded text-center fw-bold text-white">{{ resultado.mensaje }}</div>
 
                 
             </div>
-
+            <!-- Pestaña de registro de usuario -->
             <div v-if="tab==='registro'" class="p-3 bg-pastel-morado">
+                <!-- iNPUT DEL NOMBRE -->
                 <h6 class="text-center small">Nombre</h6>
                 <input v-model="nombre" class="form-control mb-1 bg-pastel-morado-input" placeholder="Nombre">
                 <span v-if="errores.nombre" class="text-danger small ">{{ errores.nombre }}</span>
-
+                <!-- iNPUT DEL CORREO -->
                 <h6 class="text-center small mt-2">Correo electrónico</h6>
                 <input v-model="correo" class="form-control mb-1 bg-pastel-morado-input" placeholder="Correo">
                 <span v-if="errores.correo" class="text-danger small ">{{ errores.correo }}</span>
-
+                <!-- iNPUT DEL PASSWORD -->
                 <h6 class="text-center small mt-2">Password</h6>
                 <input type="password" v-model="pass" class="form-control mb-1 bg-pastel-morado-input" placeholder="Contraseña">
-
+                <span v-if="errores.pass" class="text-danger small ">{{ errores.pass }}</span>
+                <!-- iNPUT DEL REPETIR PASSWORD -->
                 <h6 class="text-center small mt-2">Repetir Password</h6>
                 <input type="password" v-model="pass2" class="form-control mb-2 bg-pastel-morado-input" placeholder="Repetir">
-                <span v-if="errores.pass" class="text-danger small ">{{ errores.pass }}</span>
-
+                <span v-if="errores.passMatch" class="text-danger small d-block mb-2">{{ errores.passMatch }}</span>
+                <!-- Botón para enviar el formulario de registro -->
                 <button @click="registrar" class="btn btn-success w-100">Enviar</button>
             </div>
         </div>
+        <footer class="text-center m-1 bg-pastel-amarillo p-1 rounded footer-estilo">
+            <p class="small fw-bold text-dark">Brian Brown - IPLACEX - 2026</p>
+        </footer>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="app.js"></script>

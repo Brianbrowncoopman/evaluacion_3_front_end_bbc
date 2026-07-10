@@ -3,7 +3,7 @@
     --pastel-azul: #d1e7dd;
     --pastel-celeste: #bfcbc6;
     --pastel-rosa: #f8d7da;
-    --pastel-amarillo: #fff3cd;
+    --pastel-amarillo: #fcf2d3;
     --pastel-morado: #d7c9f2;
     --pastel-morado-claro: #e5d8f7;
     --pastel-verde: #d4edda;
@@ -49,4 +49,13 @@ body { background-color: #f8f9fa; }
 .input-destacado-notas {
     border: 2px solid #a7c4b7 !important; /* Cambia el color aquí */
     box-shadow: 0 0 8px rgba(81, 156, 106, 0.5); /* Resplandor suave */
+}
+
+.footer-estilo {
+    border: 2px solid #b8a97a; 
+}
+
+
+footer p {
+    color: var(--texto-oscuro); /* Usamos tu variable de texto oscuro definida en el :root */
 }
